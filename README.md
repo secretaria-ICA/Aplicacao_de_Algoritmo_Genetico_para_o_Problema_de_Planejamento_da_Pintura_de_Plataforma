@@ -1,4 +1,4 @@
-# CORROSAO
+# APLICAÇÃO DE ALGORITMO GENÉTICO PARA MINIMIZAÇÃO DO CUSTO DE PINTURA E SERVIÇOS ASSOCIADOS PARA UMA PLATAFORMA DE PETRÓLEO
 ## INTRODUÇÃO 
 
 A corrosão pode ser definida como a deterioração do metal pela sua reação com o ambiente (ASM, 2000). Nos ambientes marinhos das plataformas de óleo e gás a corrosão é ainda mais severa pela combinação de incidência solar, umidade e sal contido no ar (SHREMP, 1984). A corrosão afeta o negócio de upstream de diversas formas, seja afetando negativamente as receitas, CAPEX (Capital Expenditure) e OPEX (Opex Expenditure) dos projetos, seja causando problemas de integridade e segurança operacional nos ativos (KERMANI; GAROUPP, 1996). A corrosão pode atingir até 60% do custo da manutenção dos ativos na indústria de E&P (CAVASSI; FORNAGO, 1999). Outros estudos estimam o impacto total da corrosão nas atividades de upstream em cerca de 1,3 bilhões de dólares anuais (PEREZ, 2013). 
@@ -15,14 +15,14 @@ Outra importante saída desse problema será a geração de alguns indicadores, 
  
 ### 3.2.1 Função-Objetivo
 	O problema que se depara o operador é minimizar o valor presente do custo total da pintura para os 5 anos a frente, que é o horizonte do plano de negócios da empresa do operador. O custo total da pintura considera os custos contratuais de materiais e serviços das equipes a bordo para a preservação da integridade da plataforma por meio de pintura da plataforma, de modo a conter o avanço da corrosão externa. Além desses custos citados, são considerados gastos relacionados à caldeiraria, quando o avanço do processo corrosivo é excessivo e se faz necessário tal atividade. Por último, outros gastos considerados como parte dessa função-custo a ser minimizada, é o gasto com embarcação de apoio (“Flotel” ou “UMS”) para suportar campanha de pintura. Segue abaixo a síntese da composição da função-objetivo, conforme descrito. 
-
+#### Função-Objetivo
 ![Função-Objetivo](FO.JPG)
 
 Onde:
 CT = Custo Total da Pintura (Mil R$)
 TMA = Taxa Mínima de Atratividade (%a.a)
 
-### 3.4 Restrições
+### 3.2.2 Restrições
 	As restrições desse problema são basicamente as restrições de máximo permissível de taxa de corrosão para cada item alvo da inspeção de corrosão externa da plataforma como um todo, além do grau de severidade permitido para cada tipo de corrosão, de modo a satisfazer aos requisitos de integridade e segurança da plataforma do operador da plataforma, seja para atendimento a padrões de qualidade internos ou externos ou mesmo compromisso com órgão regulador.
 	Outra restrição do problema é a quantidade de equipes dedicadas a pintura na plataforma, que são três. Duas referentes a equipes a bordo que efetuam pintura o ano inteiro, mas tem a sua precificação de cobrança distinta, pois um é cobrado em reais por homem-hora e outro é por R$ por m2 efetivamente pintado. Por último, há a restrição lógica de que cada equipe de pintura individualmente não pode ultrapassar 365 dias de atividade de pintura por ano. As equações abaixo mostram claramente as referidas restrições da função-objetivo do problema.  
 IREVEST≥Meta_Plataforma_para_Ano_1
@@ -43,9 +43,9 @@ Onde:
 X = Grau de Corrosão: L(Leve), ML (Moderada Leve), M (Moderada) ou C (Crítica)
 IREVEST = 1- (Área Corroída/Área Total)
 
-### 3.5 Variáveis de Controle
+### 3.2.3 Variáveis de Controle
 	As variáveis de controle do problema é quais itens serão pintados para cada ano prospectivo e qual será a equipe de pintura utilizada par cada item, sendo as opções a não pintura (número inteiro 0), equipes a bordo (números 1 e 2 para as equipes 1 e 2) e a equipe da UMS (número 3 – para equipe 3). 
-### 3.6 Evolução da Dinâmica da Corrosão na Plataforma de Óleo e Gás
+### 3.3 Evolução da Dinâmica da Corrosão na Plataforma de Óleo e Gás
 	Para a modelagem do problema da minimização do custo do plano de pintura sujeito a evolução das metas de corrosividade e sua severidade nas plataformas é preciso modelar o seu comportamento ao longo do tempo e sua dinâmica de transição entre estados. No caso, para toda e qualquer nova pintura, foi assumido que o tempo de garantia de pintura, ou seja, o tempo em que o revestimento fica íntegro, tem o comportamento de uma distribuição triangular (Triang(4,5,2)). O nível de assimetria da distribuição, para cada plataforma, é determinado pelo nível de cuidado da equipe a bordo, onde as equipes que são mais ativas na preservação da pintura conseguem preservá-las integras por mais tempo, o que torna a distribuição mais assimétrica a direita. 
 	Foi considerado que após a passagem de tempo de garantia de pintura de cada item, se não houvesse qualquer nova pintura, o estado da pintura vai naturalmente se degradar conforme a ordem listada abaixo. O tempo de deterioração, por sua vez, ocorreria de acordo com distribuição triangular (Triang(3,2,1)). O último estágio ocorre quando o nível de corrosão é tão alto que se faz necessário atividades de caldeiraria para efetuar a troca do trecho danificado, que quando ocorre é um evento muito mais caro que a atividade de pintura. Quando se atinge a necessidade de caldeiraria há uma penalização em termos de custo por uma métrica de n vezes o custo da pintura.  A figura 1 fornece um resumo da dinâmica da evolução dos estados de corrosão do modelo. A figura 2, por sua vez, resume todos os componentes da modelagem, com a aplicação da função de algoritmo genético do Solver do Excel, com as configurações default do sistema para esse algoritmo. A planilha “Otimizador de Custos de Corrosão_V12.xlsxm” contem um protótipo funcional da modelagem da figura 2. 
 
@@ -58,15 +58,15 @@ M = Revestimento com corrosão do tipo Moderado.
 C = Revestimento com corrosão do tipo Crítico. 
 CALD = Caldeiraria.
 
-Figura 1: Dinâmica da Transição de Estados
+#### Figura 1: Dinâmica da Transição de Estados
 ![Dinâmica do Modelo](dinamica.JPG)
 
 
-Figura 2: Modelagem do Problema da Minimização do Custo do Plano de Pintura
+#### Figura 2: Modelagem do Problema da Minimização do Custo do Plano de Pintura
 ![Sistema](sistema.JPG)
 
 
-### 3.7 Saídas da Otimização
+### 3.4 Saídas da Otimização
 As principais saídas da utilização são: O que será pintado e qual equipe irá pintar de modo a minimizar o custo total, além disso, tem-se também à quantidade ótima  de dias de utilização dos recursos, tais como dias de utilização das equipes de pintura, UMS, custo total da pintura plurianual bem como o seu custo em valor presente, associado ao cenário de menor custo que atende as restrições do problema.
 Outra saída possível da otimização é a quantidade ótima de pintores. Em outras palavras, um KPI que mede a quantidade de pintores que minimiza os custos totais. Para esse indicador, se deve levar em conta os custos adicionais de um pintor adicional, como por exemplo, o custo de logística aérea e outros custos, o que deverá ser feito numa versão posterior desse modelo.   
 Outro indicador aqui também é resultado da modelagem é a evolução da área pintada plurianual por item, bem como a evolução da corrosão e sua severidade ao longo da vida útil remanescente da plataforma, dado os limites impostos de corrosão considerados no problema. Outras sensibilidades importantes derivadas da modelagem são as que medem o impacto adicional nos custos como resultado da variação nas metas de IREVEST, na taxa de crescimento da corrosão, tamanho e produtividade das equipes de pintura, bem como sensibilidades do custo com relação ao porte da embarcação de UMS necessário, sempre associados ao cenário de menor custo. Segue na tabela abaixo o resumo dos indicadores e sensibilidades gerada pela modelagem proposta, bem como sua importância para o processo.   
@@ -82,18 +82,8 @@ Um ponto importante desse trabalho é que a aplicabilidade da ferramenta é tant
  
 	
 	
- 
-
-
-
-
-
-
-
-
-
-
 ## 5 BIBLIOGRAFIA
+	
 
 ASM, ASM International - Corrosion: Understanding the Basics. Chapter 1: The effects and Economic Impact of Corrosion, 2000.,
 
