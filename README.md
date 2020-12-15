@@ -15,9 +15,11 @@ Outra importante saída desse problema será a geração de alguns indicadores, 
  
 ### 3.2.1 Função-Objetivo
 	O problema que se depara o operador é minimizar o valor presente do custo total da pintura para os 5 anos a frente, que é o horizonte do plano de negócios da empresa do operador. O custo total da pintura considera os custos contratuais de materiais e serviços das equipes a bordo para a preservação da integridade da plataforma por meio de pintura da plataforma, de modo a conter o avanço da corrosão externa. Além desses custos citados, são considerados gastos relacionados à caldeiraria, quando o avanço do processo corrosivo é excessivo e se faz necessário tal atividade. Por último, outros gastos considerados como parte dessa função-custo a ser minimizada, é o gasto com embarcação de apoio (“Flotel” ou “UMS”) para suportar campanha de pintura. Segue abaixo a síntese da composição da função-objetivo, conforme descrito. 
-)"*" 〖"Custo" 〗_("Unitá" 〖"rio" 〗_"Equipe3"  ) "+" ("Área Pintada Equipe 3" /"Produtividade Equipe 3" )"*DiáriaUMS+Cust" "o" _"Caldeiraria"  〗 "]" )/("1+TMA" )^("t-1-("  "181" /"365"  "))" ) }" /"Produtividade Equipe 2" )"*" 〖"Custo" 〗_("Unitá" 〖"rio" 〗_"Equipe2"  ) "+" ("Área Pintada Equipe 3" /"Produtividade Equipe 3" )"*" 〖"Custo" 〗_("Unitá" 〖"rio" 〗_"Equipe3"  ) "+" ("Área Pintada Equipe 3" /"Produtividade Equipe 3" )"*DiáriaUMS+Cust" "o" _"Caldeiraria"  〗 "]" )/("1+TMA" )^("t-1-("  "181" /"365"  "))" ) } 
+
+![Função-Objetivo](FO.JPG)
+
 Onde:
-CT = Custo Total da Pintura
+CT = Custo Total da Pintura (Mil R$)
 TMA = Taxa Mínima de Atratividade (%a.a)
 
 ### 3.4 Restrições
@@ -43,10 +45,11 @@ IREVEST = 1- (Área Corroída/Área Total)
 
 ### 3.5 Variáveis de Controle
 	As variáveis de controle do problema é quais itens serão pintados para cada ano prospectivo e qual será a equipe de pintura utilizada par cada item, sendo as opções a não pintura (número inteiro 0), equipes a bordo (números 1 e 2 para as equipes 1 e 2) e a equipe da UMS (número 3 – para equipe 3). 
-### 3.6) Evolução da Dinâmica da Corrosão na Plataforma de Óleo e Gás
+### 3.6 Evolução da Dinâmica da Corrosão na Plataforma de Óleo e Gás
 	Para a modelagem do problema da minimização do custo do plano de pintura sujeito a evolução das metas de corrosividade e sua severidade nas plataformas é preciso modelar o seu comportamento ao longo do tempo e sua dinâmica de transição entre estados. No caso, para toda e qualquer nova pintura, foi assumido que o tempo de garantia de pintura, ou seja, o tempo em que o revestimento fica íntegro, tem o comportamento de uma distribuição triangular (Triang(4,5,2)). O nível de assimetria da distribuição, para cada plataforma, é determinado pelo nível de cuidado da equipe a bordo, onde as equipes que são mais ativas na preservação da pintura conseguem preservá-las integras por mais tempo, o que torna a distribuição mais assimétrica a direita. 
 	Foi considerado que após a passagem de tempo de garantia de pintura de cada item, se não houvesse qualquer nova pintura, o estado da pintura vai naturalmente se degradar conforme a ordem listada abaixo. O tempo de deterioração, por sua vez, ocorreria de acordo com distribuição triangular (Triang(3,2,1)). O último estágio ocorre quando o nível de corrosão é tão alto que se faz necessário atividades de caldeiraria para efetuar a troca do trecho danificado, que quando ocorre é um evento muito mais caro que a atividade de pintura. Quando se atinge a necessidade de caldeiraria há uma penalização em termos de custo por uma métrica de n vezes o custo da pintura.  A figura 1 fornece um resumo da dinâmica da evolução dos estados de corrosão do modelo. A figura 2, por sua vez, resume todos os componentes da modelagem, com a aplicação da função de algoritmo genético do Solver do Excel, com as configurações default do sistema para esse algoritmo. A planilha “Otimizador de Custos de Corrosão_V12.xlsxm” contem um protótipo funcional da modelagem da figura 2. 
-I→L→ML→M→C→CALD→I, onde:
+
+### I→L→ML→M→C→CALD→I, onde:
 
 I = Revestimento Íntegro
 L = Revestimento com corrosão do tipo Leve
@@ -55,25 +58,23 @@ M = Revestimento com corrosão do tipo Moderado.
 C = Revestimento com corrosão do tipo Crítico. 
 CALD = Caldeiraria.
 
-Figura 1: Dinâmica da transição dos estados de corrosão no modelo
- 
-
-
+Figura 1: Dinâmica da Transição de Estados
+![Dinâmica do Modelo](dinamica.JPG)
 
 
 Figura 2: Modelagem do Problema da Minimização do Custo do Plano de Pintura
- 
+![Sistema](sistema.JPG)
 
 
-### 3.6 Saídas da Otimização
+### 3.7 Saídas da Otimização
 As principais saídas da utilização são: O que será pintado e qual equipe irá pintar de modo a minimizar o custo total, além disso, tem-se também à quantidade ótima  de dias de utilização dos recursos, tais como dias de utilização das equipes de pintura, UMS, custo total da pintura plurianual bem como o seu custo em valor presente, associado ao cenário de menor custo que atende as restrições do problema.
 Outra saída possível da otimização é a quantidade ótima de pintores. Em outras palavras, um KPI que mede a quantidade de pintores que minimiza os custos totais. Para esse indicador, se deve levar em conta os custos adicionais de um pintor adicional, como por exemplo, o custo de logística aérea e outros custos, o que deverá ser feito numa versão posterior desse modelo.   
 Outro indicador aqui também é resultado da modelagem é a evolução da área pintada plurianual por item, bem como a evolução da corrosão e sua severidade ao longo da vida útil remanescente da plataforma, dado os limites impostos de corrosão considerados no problema. Outras sensibilidades importantes derivadas da modelagem são as que medem o impacto adicional nos custos como resultado da variação nas metas de IREVEST, na taxa de crescimento da corrosão, tamanho e produtividade das equipes de pintura, bem como sensibilidades do custo com relação ao porte da embarcação de UMS necessário, sempre associados ao cenário de menor custo. Segue na tabela abaixo o resumo dos indicadores e sensibilidades gerada pela modelagem proposta, bem como sua importância para o processo.   
 	Outro aspecto interessante da modelagem é que quando não há recursos disponíveis em quantidades suficientes para atendimento as restrições estabelecidas não há solução para o modelo. E isso indica que o planejador deverá rever suas metas ou remanejar recursos para que a solução seja viável.  
-
+![tabela](tabela.JPG)
   
 
-## CONCLUSÕES E TRABALHOS FUTUROS
+## 4 CONCLUSÕES E TRABALHOS FUTUROS
 
 Tendo em vista a importância da corrosão nos custos de uma plataforma de óleo e gás, os gestores e analistas devem se atentar ao impacto deste problema no ciclo de vida de uma UEP, se o objetivo da empresa for a maximização do valor. O presente trabalho fornece uma contribuição nesse sentido, dado que fornece uma ferramenta de apoio à decisão que permite a empresa de petróleo efetuar o planejamento ótimo considerando o menor valor presente dos custos associados a pintura e preservação da integridade, enquanto atende as restrições técnicas de metas de condição de integridade estabelecida pela própria organização. Mais ainda, auxilia no estabelecimento dessas metas, ao considerar as especificidades de cada plataforma e assim, portanto, dando suporte a maximização de valor.  
 Um ponto importante desse trabalho é que a aplicabilidade da ferramenta é tanto para projetos que já estão em andamento, de modo a dar suporte as equipes de engenharia que planejam recursos e trabalham na preservação da integridade da plataforma, quanto para as plataformas que ainda serão construídas. Nesse segundo caso, decisões como a quantidade de leitos disponíveis na plataforma para evitar o uso de recursos como o UMS, por exemplo, tem que ser planejado desde o início, no intuito de maximizar o valor do negócio. 
@@ -92,7 +93,7 @@ Um ponto importante desse trabalho é que a aplicabilidade da ferramenta é tant
 
 
 
-## BIBLIOGRAFIA
+## 5 BIBLIOGRAFIA
 
 ASM, ASM International - Corrosion: Understanding the Basics. Chapter 1: The effects and Economic Impact of Corrosion, 2000.,
 
