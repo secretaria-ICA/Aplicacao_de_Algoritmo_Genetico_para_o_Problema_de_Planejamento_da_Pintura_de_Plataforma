@@ -25,19 +25,19 @@ TMA = Taxa Mínima de Atratividade (%a.a)
 ### 3.2.2 Restrições
 	As restrições desse problema são basicamente as restrições de máximo permissível de taxa de corrosão para cada item alvo da inspeção de corrosão externa da plataforma como um todo, além do grau de severidade permitido para cada tipo de corrosão, de modo a satisfazer aos requisitos de integridade e segurança da plataforma do operador da plataforma, seja para atendimento a padrões de qualidade internos ou externos ou mesmo compromisso com órgão regulador.
 	Outra restrição do problema é a quantidade de equipes dedicadas a pintura na plataforma, que são três. Duas referentes a equipes a bordo que efetuam pintura o ano inteiro, mas tem a sua precificação de cobrança distinta, pois um é cobrado em reais por homem-hora e outro é por R$ por m2 efetivamente pintado. Por último, há a restrição lógica de que cada equipe de pintura individualmente não pode ultrapassar 365 dias de atividade de pintura por ano. As equações abaixo mostram claramente as referidas restrições da função-objetivo do problema.  
-IREVEST≥Meta_Plataforma_para_Ano_1
-IREVEST≥Meta_Plataforma_para_Ano_2
-IREVEST≥Meta_Plataforma_para_Ano_3
-IREVEST≥Meta_Plataforma_para_Ano_4
-IREVEST≥Meta_Plataforma_para_Ano_5
-IREVEST_Tipo_X≥ Meta_Plataforma_para_Tipo_Ano_1
-IREVEST_Tipo_X≥ Meta_Plataforma_para_Tipo_Ano_2
-IREVEST_Tipo_X≥ Meta_Plataforma_para_Tipo_Ano_3
-IREVEST_Tipo_X≥ Meta_Plataforma_para_Tipo_Ano_4
-IREVEST_Tipo_X≥ Meta_Plataforma_para_Tipo_Ano_5
-Dias Equipe 1≤365,para cada ano
-Dias Equipe 2≤365,para cada ano
-Dias Equipe 3≤365,para cada ano
+#### IREVEST≥Meta_Plataforma_para_Ano_1
+#### IREVEST≥Meta_Plataforma_para_Ano_2
+#### IREVEST≥Meta_Plataforma_para_Ano_3
+#### IREVEST≥Meta_Plataforma_para_Ano_4
+#### IREVEST≥Meta_Plataforma_para_Ano_5
+#### IREVEST_Tipo_X≥ Meta_Plataforma_para_Tipo_Ano_1
+#### IREVEST_Tipo_X≥ Meta_Plataforma_para_Tipo_Ano_2
+#### IREVEST_Tipo_X≥ Meta_Plataforma_para_Tipo_Ano_3
+#### IREVEST_Tipo_X≥ Meta_Plataforma_para_Tipo_Ano_4
+#### IREVEST_Tipo_X≥ Meta_Plataforma_para_Tipo_Ano_5
+#### Dias Equipe 1≤365,para cada ano
+#### Dias Equipe 2≤365,para cada ano
+#### Dias Equipe 3≤365,para cada ano
 
 Onde: 
 X = Grau de Corrosão: L(Leve), ML (Moderada Leve), M (Moderada) ou C (Crítica)
