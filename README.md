@@ -15,7 +15,8 @@
 ## 2 Premissas e Dados do Problema
 
 A tabela 1 abaixo fornece os dados básicos do problema para uma empresa de petróleo fictícia, que deverão ser alimentados pelo analista. Tais informações se referem basicamente a disponibilidade de recursos como quantidade de pintores a bordo e de quantidade de embarcações do tipo “flotel”, além da produtividade desses recursos e os seus custos unitários. 
-####Tabela 1: Premissas do Problema
+
+#### Tabela 1: Premissas do Problema
 ![tabela1](tabela1.png)
 
  
@@ -80,7 +81,8 @@ CALD = Caldeiraria.
 	Outro indicador aqui também é resultado da modelagem é a evolução da área pintada plurianual por item, bem como a evolução da corrosão e sua severidade ao longo da vida útil remanescente da plataforma, dado os limites impostos de corrosão considerados no problema. 
 	Outras sensibilidades importantes derivadas da modelagem são as que medem o impacto adicional nos custos como resultado da variação nas metas de IREVEST, na taxa de crescimento da corrosão, tamanho e produtividade das equipes de pintura, bem como sensibilidades do custo com relação ao porte da embarcação de UMS necessário, sempre associados ao cenário de menor custo. Segue na tabela 2 o resumo dos indicadores e sensibilidades gerada pela modelagem proposta, bem como sua importância para o processo. 
 	Outro aspecto interessante da modelagem é que quando não há recursos disponíveis em quantidades suficientes para atendimento as restrições estabelecidas não há solução para o modelo. E isso indica que o planejador deverá rever suas metas ou remanejar recursos para que a solução seja viável.  
-#tabela 2: KPIs - Descritivo
+
+#### tabela 2: KPIs - Descritivo
 ![tabela](tabela.JPG)
 
 
