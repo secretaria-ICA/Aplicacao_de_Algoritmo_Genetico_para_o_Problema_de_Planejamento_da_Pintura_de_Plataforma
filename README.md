@@ -1,5 +1,5 @@
 # APLICAÇÃO DE ALGORITMO GENÉTICO PARA MINIMIZAÇÃO DO CUSTO DE PINTURA E SERVIÇOS ASSOCIADOS PARA UMA PLATAFORMA DE PETRÓLEO
-## INTRODUÇÃO 
+## 1) INTRODUÇÃO 
 
 A corrosão pode ser definida como a deterioração do metal pela sua reação com o ambiente (ASM, 2000). Nos ambientes marinhos das plataformas de óleo e gás a corrosão é ainda mais severa pela combinação de incidência solar, umidade e sal contido no ar (SHREMP, 1984). A corrosão afeta o negócio de upstream de diversas formas, seja afetando negativamente as receitas, CAPEX (Capital Expenditure) e OPEX (Opex Expenditure) dos projetos, seja causando problemas de integridade e segurança operacional nos ativos (KERMANI; GAROUPP, 1996). A corrosão pode atingir até 60% do custo da manutenção dos ativos na indústria de E&P (CAVASSI; FORNAGO, 1999). Outros estudos estimam o impacto total da corrosão nas atividades de upstream em cerca de 1,3 bilhões de dólares anuais (PEREZ, 2013). 
 Existem três formas da corrosão impactar os projetos de óleo e gás (KERMANI; GAROUPP, 1996): (1) Investimentos adicionais na fase de projeto para minimizar o problema da corrosão na fase de operação, (2) Impactos relacionadas ao OPEX de manutenção do campo com gastos para substituição das peças corroídas e (3) Perda de produção, com redução da eficiência operacional, tendo em vista a ocorrência de paradas na produção atribuíveis a corrosão de equipamentos na plataforma. 
@@ -11,9 +11,14 @@ Outro tipo de trabalho particularmente interessante é o que modela o processo d
 Dentro desse contexto, o presente trabalho visa suprimir a lacuna verificada na literatura em relação ao problema do operador em relação a escolha das áreas a serem pintadas no plano de pintura da plataforma, tendo em vista o problema a evolução da taxa de corrosão ao longo do tempo, a produtividade dos recursos e a possibilidade de uso de UMS para manter a corrosão externa em valores aceitáveis. Ou seja, o problema será traduzido na função objetivo de minimizar o custo total da pintura da plataforma em valor presente, sujeito às restrições de produtividade dos recursos, limitações de POB (Peoble on board) a bordo, taxa de corrosão máxima aceitável para a plataforma, tipo de corrosão, evolução da dinâmica da corrosão ao longo do tempo e outras possíveis restrições lógicas do problema. A variável de controle desse problema será a seleção ótima das áreas a serem pintadas para cada ano da vida útil remanescente da UEP para cada período, bem como a equipe de pintura a ser utilizada. 
 Outra importante saída desse problema será a geração de alguns indicadores, tais como indicador de pintores a bordo para a não utilização de UMS e a diferença desse KPI (Key Perfomance Index) para o número de vagas disponíveis para a pintura ao longo do tempo. Outro importante KPI será o custo em valor presente do pintor não embarcado, traduzido pelo custo incremental relacionado a utilização de UMS para compensar a não pintura a bordo. Outras sensibilidades relacionadas ao problema serão efetuadas, tal como a sensibilidade da função-objetivo devido às variações na taxa de corrosão e nas metas de enquadramento da taxa de corrosão por item e global da plataforma.  Para o teste desse algoritmo, será utilizado um caso sintético que emula um problema real de uma plataforma do tipo FPSO que opera no Brasil. 
 
-## 3.2 Premissas e Dados do Problema
+
+## 2 Premissas e Dados do Problema
+
+A tabela 1 abaixo fornece os dados básicos do problema para uma empresa de petróleo fictícia, que deverão ser alimentados pelo analista. Tais informações se referem basicamente a disponibilidade de recursos como quantidade de pintores a bordo e de quantidade de embarcações do tipo “flotel”, além da produtividade desses recursos e os seus custos unitários. 
+
+![Dinâmica do Modelo](dinamica.JPG)
  
-### 3.2.1 Função-Objetivo
+### 2.1 Função-Objetivo
 	O problema que se depara o operador é minimizar o valor presente do custo total da pintura para os 5 anos a frente, que é o horizonte do plano de negócios da empresa do operador. O custo total da pintura considera os custos contratuais de materiais e serviços das equipes a bordo para a preservação da integridade da plataforma por meio de pintura da plataforma, de modo a conter o avanço da corrosão externa. Além desses custos citados, são considerados gastos relacionados à caldeiraria, quando o avanço do processo corrosivo é excessivo e se faz necessário tal atividade. Por último, outros gastos considerados como parte dessa função-custo a ser minimizada, é o gasto com embarcação de apoio (“Flotel” ou “UMS”) para suportar campanha de pintura. Segue abaixo a síntese da composição da função-objetivo, conforme descrito. 
 #### Função-Objetivo
 ![Função-Objetivo](FO.JPG)
