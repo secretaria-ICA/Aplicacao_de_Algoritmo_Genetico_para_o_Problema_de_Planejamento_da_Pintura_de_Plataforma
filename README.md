@@ -81,7 +81,7 @@ CALD = Caldeiraria.
 	Outras sensibilidades importantes derivadas da modelagem são as que medem o impacto adicional nos custos como resultado da variação nas metas de IREVEST, na taxa de crescimento da corrosão, tamanho e produtividade das equipes de pintura, bem como sensibilidades do custo com relação ao porte da embarcação de UMS necessário, sempre associados ao cenário de menor custo. Segue na tabela 2 o resumo dos indicadores e sensibilidades gerada pela modelagem proposta, bem como sua importância para o processo. 
 	Outro aspecto interessante da modelagem é que quando não há recursos disponíveis em quantidades suficientes para atendimento as restrições estabelecidas não há solução para o modelo. E isso indica que o planejador deverá rever suas metas ou remanejar recursos para que a solução seja viável.  
 ![tabela](tabela.JPG)
-  
+#tabela 2: KPIs - Descritivo
 
 ## 4 CONCLUSÕES E TRABALHOS FUTUROS
 
