@@ -16,7 +16,7 @@
 
 A tabela 1 abaixo fornece os dados básicos do problema para uma empresa de petróleo fictícia, que deverão ser alimentados pelo analista. Tais informações se referem basicamente a disponibilidade de recursos como quantidade de pintores a bordo e de quantidade de embarcações do tipo “flotel”, além da produtividade desses recursos e os seus custos unitários. 
 
-![tabela1](tabela.JPG)
+![tabela1](tabela1.PNG)
 # Tabela 1: Premissas do Problema
  
 ### 2.1 Função-Objetivo
