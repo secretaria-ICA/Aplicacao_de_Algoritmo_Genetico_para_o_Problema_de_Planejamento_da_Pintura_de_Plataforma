@@ -15,9 +15,9 @@
 ## 2 Premissas e Dados do Problema
 
 A tabela 1 abaixo fornece os dados básicos do problema para uma empresa de petróleo fictícia, que deverão ser alimentados pelo analista. Tais informações se referem basicamente a disponibilidade de recursos como quantidade de pintores a bordo e de quantidade de embarcações do tipo “flotel”, além da produtividade desses recursos e os seus custos unitários. 
-
+####Tabela 1: Premissas do Problema
 ![tabela1](tabela1.png)
-# Tabela 1: Premissas do Problema
+
  
 ### 2.1 Função-Objetivo
 	O problema que se depara o operador é minimizar o valor presente do custo total da pintura para os 5 anos a frente, que é o horizonte do plano de negócios da empresa do operador. O custo total da pintura considera os custos contratuais de materiais e serviços das equipes a bordo para a preservação da integridade da plataforma por meio de pintura da plataforma, de modo a conter o avanço da corrosão externa. Além desses custos citados, são considerados gastos relacionados à caldeiraria, quando o avanço do processo corrosivo é excessivo e se faz necessário tal atividade. Por último, outros gastos considerados como parte dessa função-custo a ser minimizada, é o gasto com embarcação de apoio (“Flotel” ou “UMS”) para suportar campanha de pintura. Segue abaixo a síntese da composição da função-objetivo, conforme descrito. 
@@ -80,8 +80,9 @@ CALD = Caldeiraria.
 	Outro indicador aqui também é resultado da modelagem é a evolução da área pintada plurianual por item, bem como a evolução da corrosão e sua severidade ao longo da vida útil remanescente da plataforma, dado os limites impostos de corrosão considerados no problema. 
 	Outras sensibilidades importantes derivadas da modelagem são as que medem o impacto adicional nos custos como resultado da variação nas metas de IREVEST, na taxa de crescimento da corrosão, tamanho e produtividade das equipes de pintura, bem como sensibilidades do custo com relação ao porte da embarcação de UMS necessário, sempre associados ao cenário de menor custo. Segue na tabela 2 o resumo dos indicadores e sensibilidades gerada pela modelagem proposta, bem como sua importância para o processo. 
 	Outro aspecto interessante da modelagem é que quando não há recursos disponíveis em quantidades suficientes para atendimento as restrições estabelecidas não há solução para o modelo. E isso indica que o planejador deverá rever suas metas ou remanejar recursos para que a solução seja viável.  
-![tabela](tabela.JPG)
 #tabela 2: KPIs - Descritivo
+![tabela](tabela.JPG)
+
 
 ## 4 CONCLUSÕES E TRABALHOS FUTUROS
 
